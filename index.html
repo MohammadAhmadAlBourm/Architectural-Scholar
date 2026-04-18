@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Architectural Scholar | .NET Developer Mastery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@700;800&family=Noto+Kufi+Arabic:wght@400;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-surface text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+
+    <!-- ======================================================
+       TOP NAV
+  ====================================================== -->
+    <nav id="main-nav" class="fixed top-0 w-full z-50 glass-nav transition-shadow duration-300">
+        <div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+            <span class="text-xl font-extrabold tracking-tighter text-blue-700"
+                style="font-family:'Manrope','Noto Kufi Arabic',sans-serif;" data-en="Architectural Scholar"
+                data-ar="المعلم المعماري">Architectural Scholar</span>
+
+            <!-- Desktop links -->
+            <div class="hidden md:flex items-center gap-7">
+                <a href="#curriculum"
+                    class="nav-link text-slate-600 font-bold tracking-tight hover:text-blue-600 transition-colors duration-200 text-sm"
+                    data-en="Curriculum" data-ar="المنهج">Curriculum</a>
+                <a href="#instructors"
+                    class="nav-link text-slate-600 font-bold tracking-tight hover:text-blue-600 transition-colors duration-200 text-sm"
+                    data-en="Instructors" data-ar="المدربون">Instructors</a>
+                <a href="#pricing"
+                    class="nav-link text-slate-600 font-bold tracking-tight hover:text-blue-600 transition-colors duration-200 text-sm"
+                    data-en="Pricing" data-ar="الأسعار">Pricing</a>
+                <a href="#reviews"
+                    class="nav-link text-slate-600 font-bold tracking-tight hover:text-blue-600 transition-colors duration-200 text-sm"
+                    data-en="Reviews" data-ar="التقييمات">Reviews</a>
+                <a href="#contact"
+                    class="nav-link text-slate-600 font-bold tracking-tight hover:text-blue-600 transition-colors duration-200 text-sm"
+                    data-en="Contact" data-ar="تواصل معنا">Contact</a>
+                <button onclick="scrollToEnroll()"
+                    class="editorial-gradient text-white px-6 py-2.5 rounded-lg font-bold uppercase tracking-wider text-xs active:scale-95 transition-transform"
+                    data-en="Enroll Now" data-ar="سجّل الآن">Enroll Now</button>
+                <button class="lang-btn" id="lang-toggle" onclick="toggleLang()">عربي</button>
+            </div>
+
+            <!-- Mobile: hamburger + lang -->
+            <div class="flex md:hidden items-center gap-3">
+                <button class="lang-btn" onclick="toggleLang()" id="lang-toggle-mobile">عربي</button>
+                <button onclick="document.getElementById('mobile-menu').classList.toggle('open')"
+                    class="p-2 rounded-lg hover:bg-surface-container transition-colors">
+                    <span class="material-symbols-outlined text-slate-600">menu</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden px-6 pb-4 bg-white/95 border-t border-outline-variant/30">
+            <div class="flex flex-col gap-4 pt-4">
+                <a href="#curriculum" onclick="closeMobileMenu()" class="nav-link text-slate-700 font-bold text-sm"
+                    data-en="Curriculum" data-ar="المنهج">Curriculum</a>
+                <a href="#instructors" onclick="closeMobileMenu()" class="nav-link text-slate-700 font-bold text-sm"
+                    data-en="Instructors" data-ar="المدربون">Instructors</a>
+                <a href="#pricing" onclick="closeMobileMenu()" class="nav-link text-slate-700 font-bold text-sm"
+                    data-en="Pricing" data-ar="الأسعار">Pricing</a>
+                <a href="#reviews" onclick="closeMobileMenu()" class="nav-link text-slate-700 font-bold text-sm"
+                    data-en="Reviews" data-ar="التقييمات">Reviews</a>
+                <a href="#contact" onclick="closeMobileMenu()" class="nav-link text-slate-700 font-bold text-sm"
+                    data-en="Contact" data-ar="تواصل معنا">Contact</a>
+                <button onclick="scrollToEnroll(); closeMobileMenu();"
+                    class="editorial-gradient text-white px-6 py-3 rounded-lg font-bold uppercase tracking-wider text-xs w-full"
+                    data-en="Enroll Now" data-ar="سجّل الآن">Enroll Now</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-24 overflow-x-hidden">
+
+        <!-- ======================================================
+         HERO
+    ====================================================== -->
+        <section id="home"
+            class="relative px-6 py-20 lg:py-32 max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7 reveal">
+                <span
+                    class="hero-badge inline-block px-4 py-1.5 rounded-full bg-secondary-container text-on-secondary-container text-xs font-bold tracking-widest uppercase mb-6"
+                    data-en="INTENSIVE 30-DAY BOOTCAMP" data-ar="بوتكامب مكثف - 30 يوماً">INTENSIVE 30-DAY
+                    BOOTCAMP</span>
+                <h1 class="text-5xl lg:text-7xl font-extrabold tracking-tight text-on-surface mb-8 leading-[1.1]"
+                    style="font-family:'Manrope','Noto Kufi Arabic',sans-serif;">
+                    <span data-en="Become a Professional" data-ar="كن مطور">Become a Professional</span>
+                    <span class="text-primary"> .NET </span>
+                    <span data-en="Developer in 30 Days" data-ar="احترافياً في 30 يوماً">Developer in 30 Days</span>
+                </h1>
+                <div class="space-y-4 mb-10">
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary flex-shrink-0"
+                            style="font-variation-settings:'FILL' 1;">check_circle</span>
+                        <p class="text-lg text-on-surface-variant"
+                            data-en="Master C# 12 and the latest .NET 8 Ecosystem"
+                            data-ar="إتقان C# 12 وأحدث نظام بيئي لـ .NET 8">Master C# 12 and the latest .NET 8 Ecosystem
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary flex-shrink-0"
+                            style="font-variation-settings:'FILL' 1;">check_circle</span>
+                        <p class="text-lg text-on-surface-variant"
+                            data-en="Build Scalable Microservices with Clean Architecture"
+                            data-ar="بناء خدمات مصغّرة قابلة للتوسع بالعمارة النظيفة">Build Scalable Microservices with
+                            Clean Architecture</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary flex-shrink-0"
+                            style="font-variation-settings:'FILL' 1;">check_circle</span>
+                        <p class="text-lg text-on-surface-variant" data-en="Deploy Production-Ready Apps to Azure & AWS"
+                            data-ar="نشر تطبيقات جاهزة للإنتاج على Azure وAWS">Deploy Production-Ready Apps to Azure
+                            &amp; AWS</p>
+                    </div>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button onclick="scrollToEnroll()"
+                        class="editorial-gradient text-white px-8 py-4 rounded-lg font-bold uppercase tracking-widest text-sm shadow-xl hover:scale-[1.02] transition-transform"
+                        data-en="Enroll Now" data-ar="سجّل الآن">Enroll Now</button>
+                    <button onclick="document.getElementById('curriculum').scrollIntoView({behavior:'smooth'})"
+                        class="flex items-center justify-center gap-2 px-8 py-4 rounded-lg border border-outline-variant hover:bg-surface-container-low transition-colors font-bold uppercase tracking-widest text-sm">
+                        <span class="material-symbols-outlined">play_circle</span>
+                        <span data-en="View Syllabus" data-ar="عرض المنهج">View Syllabus</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 relative reveal" style="transition-delay:.15s">
+                <div
+                    class="aspect-video lg:aspect-square bg-surface-container-highest rounded-2xl overflow-hidden shadow-2xl relative group cursor-pointer">
+                    <img alt="Coding environment"
+                        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5ZphIrYigVryeuDnjwfa-Y4GKHfjbFx9uN-cuu8WhLU9mqjbm5mBjOI_bP2GlABpIgM33i8EK6v8QRe3b14u1O8kG1FUmTo_v4VA87GBnLhQa88JzUmKRJLDr6ZPF9C7E11Hf-eE3rbsbdnutSGkt8UPNxFqxHDdiiFneXIcQVAiAq87EZBOWaQlswRUZ6BVFmg9bigzKZBfewqjYZJKGWUsOI00o02oyyeCcnMV9cX_r6XucgBi1MjI6RymtDbEcbuyxk9qg0qk"
+                        onerror="this.src='https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80'" />
+                    <div class="absolute inset-0 bg-primary/20 flex items-center justify-center">
+                        <div
+                            class="w-20 h-20 bg-white/90 rounded-full flex items-center justify-center shadow-2xl backdrop-blur-md">
+                            <span class="material-symbols-outlined text-primary text-4xl"
+                                style="font-variation-settings:'FILL' 1;">play_arrow</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats bar -->
+        <div class="bg-primary py-10 reveal">
+            <div class="max-w-5xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-white">
+                <div>
+                    <p class="text-3xl font-extrabold" style="font-family:'Manrope','Noto Kufi Arabic',sans-serif;">50k+
+                    </p>
+                    <p class="text-xs uppercase tracking-widest opacity-70 mt-1" data-en="Students Taught"
+                        data-ar="طالب درّبناهم">Students Taught</p>
+                </div>
+                <div>
+                    <p class="text-3xl font-extrabold" style="font-family:'Manrope','Noto Kufi Arabic',sans-serif;">
+                        4.9/5</p>
+                    <p class="text-xs uppercase tracking-widest opacity-70 mt-1" data-en="Average Rating"
+                        data-ar="متوسط التقييم">Average Rating</p>
+                </div>
+                <div>
+                    <p class="text-3xl font-extrabold" style="font-family:'Manrope','Noto Kufi Arabic',sans-serif;">30
+                    </p>
+                    <p class="text-xs uppercase tracking-widest opacity-70 mt-1" data-en="Day Bootcamp"
+                        data-ar="يوم بوتكامب">Day Bootcamp</p>
+                </div>
+                <div>
+                    <p class="text-3xl font-extrabold" style="font-family:'Manrope','Noto Kufi Arabic',sans-serif;">100%
+                    </p>
+                    <p class="text-xs uppercase tracking-widest opacity-70 mt-1" data-en="Money-Back Guarantee"
+                        data-ar="ضمان استرداد المال">Money-Back Guarantee</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ======================================================
+         CURRICULUM
+    ====================================================== -->
+        <section class="bg-surface-container-low py-24" id="curriculum">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-4xl font-extrabold mb-4"
+                        style="font-family:'Manrope','Noto Kufi Arabic',sans-serif;" data-en="The Architectural Path"
+                        data-ar="مسار العمارة البرمجية">The Architectural Path</h2>
+                    <p class="text-on-surface-variant"
+                        data-en="Four deep-dive modules engineered for the modern senior developer."
+                        data-ar="أربعة وحدات دراسية متعمقة مصممة للمطور المتقدم.">Four deep-dive modules engineered for
+                        the modern senior developer.</p>
+                </div>
+                <div class="space-y-6">
+
+                    <!-- Module 1 -->
+                    <details
+                        class="group bg-surface-container-lowest rounded-xl shadow-[0_8px_32px_rgba(0,0,0,0.02)] overflow-hidden reveal">
+                        <summary class="flex items-center justify-between p-8 cursor-pointer list-none">
+                            <h3 class="font-bold text-xl flex items-center gap-4"
+                                style="font-family:'Manrope','Noto Kufi Arabic',sans-serif;">
+                                <span class="text-primary font-extrabold text-2xl">01</span>
+                                <span data-en="Fundamentals &amp; Advanced C#"
+                                    data-ar="أساسيات وC# المتقدم">Fundamentals &amp; Advanced C#</span>
+                            </h3>
+                            <span
+                                class="expand-icon material-symbols-outlined text-outline transition-transform duration-300">expand_more</span>
+                        </summary>
+                        <div
+                            class="px-8 pb-8 text-on-surface-variant space-y-3 border-t border-outline-variant/30 pt-4">
+                            <p data-en="Master asynchronous programming, LINQ internals, and memory management with Spans and Memory&lt;T&gt;."
+                                data-ar="إتقان البرمجة غير المتزامنة وداخليات LINQ وإدارة الذاكرة باستخدام Spans وMemory&lt;T&gt;.">
+                                Master asynchronous programming, LINQ internals, and memory management with Spans and
+                                Memory&lt;T&gt;.</p>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <span
+                                    class="px-3 py-1 bg-secondary-container rounded-full text-[10px] font-bold uppercase tracking-tighter">async/await</span>
+                                <span
+                                    class="px-3 py-1 bg-secondary-container rounded-full text-[10px] font-bold uppercase tracking-tighter">LINQ</span>
+                                <span
+                                    class="px-3 py-1 bg-secondary-container rounded-full text-[10px] font-bold uppercase tracking-tighter">Span&lt;T&gt;</span>
+                                <span
+                                    class="px-3 py-1 bg-secondary-container rounded-full text-[10px] font-bold uppercase tracking-tighter">Generics</span>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Module 2 -->
+                    <details
+                        class="group bg-surface-container-lowest rounded-xl shadow-[0_8px_32px_rgba(0,0,0,0.02)] overflow-hidden reveal">
+                        <summary class="flex items-center justify-between p-8 cursor-pointer list-none">
+                            <h3 class="font-bold text-xl flex items-center gap-4"
+                                style="font-family:'Manrope','Noto Kufi Arabic',sans-serif;">
+                                <span class="text-primary font-extrabold text-2xl">02</span>
+                                <span data-en="Backend Development with ASP.NET Core"
+                                    data-ar="تطوير الخلفية مع ASP.NET Core">Backend Development with ASP.NET Core</span>
+                            </h3>
+                            <span
+                                class="expand-icon material-symbols-outlined text-outline transition-transform duration-300">expand_more</span>
+                        </summary>
+                        <div
+                            class="px-8 pb-8 text-on-surface-variant space-y-3 border-t border-outline-variant/30 pt-4">
+                            <p data-en="Build robust RESTful APIs, master Entity Framework Core, and implement advanced Middleware patterns."
+                                data-ar="بناء واجهات RESTful APIs قوية وإتقان Entity Framework Core وتطبيق أنماط Middleware المتقدمة.">
+                                Build robust RESTful APIs, master Entity Framework Core, and implement advanced
+                                Middleware patterns.</p>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <span
+                                    class="px-3 py-1 bg-secondary-container rounded-full text-[10px] font-bold uppercase tracking-tighter">REST
+                                    APIs</span>
+                                <span
+                                    class="px-3 py-1 bg-secondary-container rounded-full text-[10px] font-bold uppercase tracking-tighter">EF
+                                    Core</span>
+                                <span
+                                    class="px-3 py-1 bg-secondary-container rounded-full text-[10px] font-bold uppercase tracking-tighter">Middleware</span>
+                                <span
+                                    class="px-3 py-1 bg-secondary-container rounded-full text-[10px] font-bold uppercase tracking-tighter">JWT
+                                    Auth</span>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Module 3 -->
+                    <details
+                        class="group bg-surface-container-lowest rounded-xl shadow-[0_8px_32px_rgba(0,0,0,0.02)] overflow-hidden reveal">
+                        <summary class="flex items-center justify-between p-8 cursor-pointer list-none">
+                            <h3 class="font-bold text-xl flex items-center gap-4"
+                                style="font-family:'Manrope','Noto Kufi Arabic',sans-serif;">
+                                <span class="text-primary font-extrabold text-2xl">03</span>
+                                <span data-en="Clean Architecture &amp; Design Patterns"
+                                    data-ar="العمارة النظيفة وأنماط التصميم">Clean Architecture &amp; Design
+                                    Patterns</span>
+                            </h3>
+                            <span
+                                class="expand-icon material-symbols-outlined text-outline transition-transform duration-300">expand_more</span>
+                        </summary>
+                        <div
+                            class="px-8 pb-8 text-on-surface-variant space-y-3 border-t border-outline-variant/30 pt-4">
+                            <p data-en="Implementation of Onion Architecture, CQRS with MediatR, and Domain Driven Design (DDD) principles."
+                                data-ar="تطبيق Onion Architecture وCQRS مع MediatR ومبادئ Domain Driven Design.">
+                                Implementation of Onion Architecture, CQRS with MediatR, and Domain Driven Design (DDD)
+                                principles.</p>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <span
+                                    class="px-3 py-1 bg-secondary-container rounded-full text-[10px] font-bold uppercase tracking-tighter">CQRS</span>
+                                <span
+                                    class="px-3 py-1 bg-secondary-container rounded-full text-[10px] font-bold uppercase tracking-tighter">MediatR</span>
+                                <span
+                                    class="px-3 py-1 bg-secondary-container rounded-full text-[10px] font-bold uppercase tracking-tighter">DDD</span>
+                                <span
+                                    class="px-3 py-1 bg-secondary-container rounded-full text-[10px] font-bold uppercase tracking-tighter">SOLID</span>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- Module 4 (open by default) -->
+                    <details open
+                        class="group bg-surface-container-lowest rounded-xl overflow-hidden border-l-4 border-primary reveal">
+                        <summary class="flex items-center justify-between p-8 cursor-pointer list-none">
+                            <h3 class="font-bold text-xl flex items-center gap-4"
+                                style="font-family:'Manrope','Noto Kufi Arabic',sans-serif;">
+                                <span class="text-primary font-extrabold text-2xl">04</span>
+                                <span data-en="Real-World Projects &amp; DevOps"
+                                    data-ar="مشاريع واقعية وDevOps">Real-World Projects &amp; DevOps</span>
+                            </h3>
+                            <span
+                                class="expand-icon material-symbols-outlined text-primary transition-transform duration-300"
+                                style="transform:rotate(180deg)">expand_more</span>
+                        </summary>
+                        <div
+                            class="px-8 pb-8 text-on-surface-variant space-y-4 border-t border-outline-variant/30 pt-4">
+                            <p data-en="Capstone: Build an e-commerce microservices engine using Docker, Kubernetes, and GitHub Actions CI/CD."
+                                data-ar="مشروع التخرج: بناء محرك تجارة إلكترونية بالخدمات المصغرة باستخدام Docker وKubernetes وGitHub Actions.">
+                                Capstone: Build an e-commerce microservices engine using Docker, Kubernetes, and GitHub
+                                Actions CI/CD.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-3 py-1 bg-secondary-container rounded-full text-[10px] font-bold uppercase tracking-tighter">Docker</span>
+                                <span
+                                    class="px-3 py-1 bg-secondary-container rounded-full text-[10px] font-bold uppercase tracking-tighter">RabbitMQ</span>
+                                <span
+                                    class="px-3 py-1 bg-secondary-container rounded-full text-[10px] font-bold uppercase tracking-tighter">Redis</span>
+                                <span
+                                    class="px-3 py-1 bg-secondary-container rounded-full text-[10px] font-bold uppercase tracking-tighter">Kubernetes</span>
+                                <span
+                                    class="px-3 py-1 bg-secondary-container rounded-full text-[10px] font-bold uppercase tracking-tighter">GitHub
+                                    Actions</span>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================================
+         INSTRUCTOR
+    ====================================================== -->
+        <section class="py-24 max-w-7xl mx-auto px-6" id="instructors">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="relative reveal">
+                    <div class="bg-surface-container-high rounded-3xl p-4 rotate-3">
+                        <img alt="Instructor portrait"
+                            class="rounded-2xl w-full -rotate-3 object-cover shadow-2xl grayscale hover:grayscale-0 transition-all duration-500"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMnVuM3y1aV0uWouByn-hqo1AC6rVIT5NeFTdJCDepfMAFNfRZkWBAprKmuAD4dl8CVe93_MJTxQgv1w98Pk2RTyOG0rRq38G9PDkk7Y9TEKD51zvbVdZjOT-bhkeb9vBQfPenZEc8t0jmMt8ljHIHICOJxCFI7OPp1AzvSG__1DdEXTeZcx28eer5OK2p8sBENi937uATJyQE4Rxd8wlcukiWflRgES5zF8lanGCmJFpxP8QxLUxeOMZuSWLGxba7fc_y-ZXk0h4"
+                            onerror="this.src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80'" />
+                    </div>
+                    <div class="absolute -bottom-8 editorial-gradient p-8 rounded-xl text-white shadow-2xl"
+                        style="right:-2rem" id="years-badge">
+                        <p class="text-4xl font-extrabold" style="font-family:'Manrope','Noto Kufi Arabic',sans-serif;">
+                            12+</p>
+                        <p class="text-xs font-bold uppercase tracking-widest opacity-80" data-en="Years in Industry"
+                            data-ar="سنوات في المجال">Years in Industry</p>
+                    </div>
+                </div>
+
+                <div class="lg:ps-8 reveal" style="transition-delay:.15s">
+                    <h2 class="text-4xl font-extrabold mb-2"
+                        style="font-family:'Manrope','Noto Kufi Arabic',sans-serif;" data-en="Learn from an Expert"
+                        data-ar="تعلّم من خبير">Learn from an Expert</h2>
+                    <h3 class="text-primary font-bold text-xl mb-6" data-en="Senior Software Engineer &amp; Architect"
+                        data-ar="مهندس برمجيات أول ومعماري">Senior Software Engineer &amp; Architect</h3>
+                    <p class="text-on-surface-variant text-lg leading-relaxed mb-8">
+                        <span
+                            data-en="Marcus Thorne has spent over a decade architecting high-frequency trading platforms and enterprise-level SaaS solutions. As a former Principal Engineer at Fortune 500 tech firms, Marcus brings the exact professional standards required in the industry today into the classroom."
+                            data-ar="قضى ماركوس ثورن أكثر من عقد في تصميم منصات التداول عالي التردد وحلول SaaS على مستوى المؤسسات. بوصفه مهندسًا رئيسيًا سابقًا في شركات Fortune 500، يجلب ماركوس المعايير المهنية الدقيقة المطلوبة في الصناعة اليوم إلى الفصل الدراسي.">Marcus
+                            Thorne has spent over a decade architecting high-frequency trading platforms and
+                            enterprise-level SaaS solutions. As a former Principal Engineer at Fortune 500 tech firms,
+                            Marcus brings the exact professional standards required in the industry today into the
+                            classroom.</span>
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="p-4 bg-surface-container-low rounded-lg">
+                            <p class="text-2xl font-bold text-on-surface"
+                                style="font-family:'Manrope','Noto Kufi Arabic',sans-serif;">50k+</p>
+                            <p class="text-xs text-on-surface-variant uppercase font-bold tracking-widest"
+                                data-en="Students Taught" data-ar="طالب درّبناهم">Students Taught</p>
+                        </div>
+                        <div class="p-4 bg-surface-container-low rounded-lg">
+                            <p class="text-2xl font-bold text-on-surface"
+                                style="font-family:'Manrope','Noto Kufi Arabic',sans-serif;">4.9/5</p>
+                            <p class="text-xs text-on-surface-variant uppercase font-bold tracking-widest"
+                                data-en="Avg. Rating" data-ar="متوسط التقييم">Avg. Rating</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================================
+         PRICING
+    ====================================================== -->
+        <section class="bg-surface py-24" id="pricing">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-4xl font-extrabold mb-4"
+                        style="font-family:'Manrope','Noto Kufi Arabic',sans-serif;" data-en="Investment in Your Future"
+                        data-ar="استثمر في مستقبلك">Investment in Your Future</h2>
+                    <p class="text-on-surface-variant" data-en="Select the path that matches your career velocity."
+                        data-ar="اختر الخطة التي تناسب سرعة مسيرتك المهنية.">Select the path that matches your career
+                        velocity.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+                    <!-- Monthly -->
+                    <div class="bg-surface-container-low p-10 rounded-2xl relative overflow-hidden group reveal">
+                        <div class="mb-8">
+                            <h3 class="text-2xl font-bold mb-2"
+                                style="font-family:'Manrope','Noto Kufi Arabic',sans-serif;" data-en="Architect Pass"
+                                data-ar="تصريح المعماري">Architect Pass</h3>
+                            <p class="text-on-surface-variant text-sm" data-en="Subscription access"
+                                data-ar="وصول باشتراك شهري">Subscription access</p>
+                        </div>
+                        <div class="mb-8">
+                            <span class="text-4xl font-extrabold"
+                                style="font-family:'Manrope','Noto Kufi Arabic',sans-serif;">$49</span>
+                            <span class="text-on-surface-variant" data-en="/month" data-ar="/شهرياً">/month</span>
+                        </div>
+                        <ul class="space-y-4 mb-10">
+                            <li class="flex items-center gap-3 text-sm"><span
+                                    class="material-symbols-outlined text-primary text-lg">check</span><span
+                                    data-en="All Course Modules" data-ar="جميع وحدات الدورة">All Course Modules</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-sm"><span
+                                    class="material-symbols-outlined text-primary text-lg">check</span><span
+                                    data-en="Weekly Group Coaching" data-ar="تدريب جماعي أسبوعي">Weekly Group
+                                    Coaching</span></li>
+                            <li class="flex items-center gap-3 text-sm"><span
+                                    class="material-symbols-outlined text-primary text-lg">check</span><span
+                                    data-en="Community Access" data-ar="الوصول للمجتمع">Community Access</span></li>
+                            <li class="flex items-center gap-3 text-sm opacity-50"><span
+                                    class="material-symbols-outlined text-lg">block</span><span
+                                    data-en="Lifetime Updates" data-ar="تحديثات مدى الحياة">Lifetime Updates</span></li>
+                        </ul>
+                        <button onclick="scrollToContact()"
+                            class="w-full py-4 rounded-lg border border-outline font-bold uppercase tracking-widest text-xs hover:bg-surface-container-high transition-colors"
+                            data-en="Start Monthly" data-ar="ابدأ الاشتراك الشهري">Start Monthly</button>
+                    </div>
+
+                    <!-- Elite -->
+                    <div class="bg-surface-container-lowest p-10 rounded-2xl relative overflow-hidden ring-glow reveal"
+                        style="transition-delay:.1s">
+                        <div class="absolute top-0 end-0 editorial-gradient text-white px-6 py-1.5 font-bold text-[10px] uppercase tracking-widest rounded-bl-xl"
+                            data-en="Best Value" data-ar="أفضل قيمة">Best Value</div>
+                        <div class="mb-8">
+                            <h3 class="text-2xl font-bold mb-2"
+                                style="font-family:'Manrope','Noto Kufi Arabic',sans-serif;" data-en="The Scholar Elite"
+                                data-ar="الباقة الذهبية">The Scholar Elite</h3>
+                            <p class="text-on-surface-variant text-sm" data-en="Full professional kit"
+                                data-ar="الحزمة الاحترافية الكاملة">Full professional kit</p>
+                        </div>
+                        <div class="mb-8">
+                            <span class="text-4xl font-extrabold"
+                                style="font-family:'Manrope','Noto Kufi Arabic',sans-serif;">$499</span>
+                            <span class="text-on-surface-variant text-sm line-through ms-2">$899</span>
+                        </div>
+                        <ul class="space-y-4 mb-10">
+                            <li class="flex items-center gap-3 text-sm font-semibold"><span
+                                    class="material-symbols-outlined text-primary text-lg"
+                                    style="font-variation-settings:'FILL' 1;">stars</span><span
+                                    data-en="Lifetime Course Access" data-ar="وصول مدى الحياة للدورة">Lifetime Course
+                                    Access</span></li>
+                            <li class="flex items-center gap-3 text-sm font-semibold"><span
+                                    class="material-symbols-outlined text-primary text-lg"
+                                    style="font-variation-settings:'FILL' 1;">stars</span><span
+                                    data-en="Complete Source Code Pro" data-ar="الكود المصدري الكامل Pro">Complete
+                                    Source Code Pro</span></li>
+                            <li class="flex items-center gap-3 text-sm font-semibold"><span
+                                    class="material-symbols-outlined text-primary text-lg"
+                                    style="font-variation-settings:'FILL' 1;">stars</span><span
+                                    data-en="Verified Certification" data-ar="شهادة معتمدة">Verified
+                                    Certification</span></li>
+                            <li class="flex items-center gap-3 text-sm font-semibold"><span
+                                    class="material-symbols-outlined text-primary text-lg"
+                                    style="font-variation-settings:'FILL' 1;">stars</span><span
+                                    data-en="1-on-1 Portfolio Review" data-ar="مراجعة المحفظة فردياً">1-on-1 Portfolio
+                                    Review</span></li>
+                        </ul>
+                        <button id="enroll-btn" onclick="scrollToContact()"
+                            class="w-full py-4 rounded-lg editorial-gradient text-white font-bold uppercase tracking-widest text-xs shadow-lg hover:scale-[1.02] transition-transform"
+                            data-en="Enroll Lifetime" data-ar="سجّل للأبد">Enroll Lifetime</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================================
+         REVIEWS
+    ====================================================== -->
+        <section class="py-24 max-w-7xl mx-auto px-6" id="reviews">
+            <h2 class="text-4xl font-extrabold text-center mb-16 reveal"
+                style="font-family:'Manrope','Noto Kufi Arabic',sans-serif;" data-en="Success Stories"
+                data-ar="قصص النجاح">Success Stories</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+
+                <div class="p-8 bg-surface-container-low rounded-2xl reveal">
+                    <div class="flex gap-1 text-yellow-500 mb-4">
+                        <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+                    </div>
+                    <p class="text-on-surface-variant mb-8 italic"
+                        data-en="&quot;The module on Clean Architecture changed how I think about code forever. I landed a Senior Dev role within 2 weeks of finishing the capstone.&quot;"
+                        data-ar="«غيّرت وحدة العمارة النظيفة طريقة تفكيري في البرمجة للأبد. حصلت على دور مطور أول خلال أسبوعين من إتمام المشروع.»">
+                        "The module on Clean Architecture changed how I think about code forever. I landed a Senior Dev
+                        role within 2 weeks of finishing the capstone."</p>
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white font-bold">
+                            AR</div>
+                        <div>
+                            <p class="font-bold text-sm" data-en="Alex Rivera" data-ar="أليكس ريفيرا">Alex Rivera</p>
+                            <p class="text-xs text-on-surface-variant" data-en="Senior Dev @ FinTech Hub"
+                                data-ar="مطور أول في FinTech Hub">Senior Dev @ FinTech Hub</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-8 bg-surface-container-low rounded-2xl mt-0 md:mt-8 reveal" style="transition-delay:.1s">
+                    <div class="flex gap-1 text-yellow-500 mb-4">
+                        <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+                    </div>
+                    <p class="text-on-surface-variant mb-8 italic"
+                        data-en="&quot;Most bootcamps are too shallow. Marcus goes deep into the internals of the .NET CLR. Exactly what I needed.&quot;"
+                        data-ar="«معظم البوتكامبات سطحية للغاية. ماركوس يغوص في أعماق .NET CLR. هذا بالضبط ما كنت أحتاجه.»">
+                        "Most bootcamps are too shallow. Marcus goes deep into the internals of the .NET CLR. Exactly
+                        what I needed."</p>
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center text-white font-bold">
+                            SJ</div>
+                        <div>
+                            <p class="font-bold text-sm" data-en="Sarah Jenks" data-ar="سارة جنكس">Sarah Jenks</p>
+                            <p class="text-xs text-on-surface-variant" data-en="Backend Engineer @ Streamline"
+                                data-ar="مهندسة خلفية في Streamline">Backend Engineer @ Streamline</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-8 bg-surface-container-low rounded-2xl reveal" style="transition-delay:.2s">
+                    <div class="flex gap-1 text-yellow-500 mb-4">
+                        <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+                        <span class="material-symbols-outlined" style="font-variation-settings:'FILL' 1;">star</span>
+                    </div>
+                    <p class="text-on-surface-variant mb-8 italic"
+                        data-en="&quot;The real-world microservices project is basically a template for a production system. Worth every penny.&quot;"
+                        data-ar="«مشروع الخدمات المصغرة الواقعي هو قالب جاهز لنظام إنتاج حقيقي. يستحق كل قرش.»">"The
+                        real-world microservices project is basically a template for a production system. Worth every
+                        penny."</p>
+                    <div class="flex items-center gap-4">
+                        <div
+                            class="w-12 h-12 rounded-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center text-white font-bold">
+                            DC</div>
+                        <div>
+                            <p class="font-bold text-sm" data-en="David Chen" data-ar="ديفيد تشن">David Chen</p>
+                            <p class="text-xs text-on-surface-variant" data-en="C# Developer @ CloudSystems"
+                                data-ar="مطور C# في CloudSystems">C# Developer @ CloudSystems</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================================
+         FAQ
+    ====================================================== -->
+        <section class="py-24 bg-surface-container-low/50" id="faq">
+            <div class="max-w-3xl mx-auto px-6">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="text-4xl font-extrabold mb-4"
+                        style="font-family:'Manrope','Noto Kufi Arabic',sans-serif;"
+                        data-en="Frequently Asked Questions" data-ar="الأسئلة الشائعة">Frequently Asked Questions</h2>
+                    <p class="text-on-surface-variant"
+                        data-en="Everything you need to know about the bootcamp experience."
+                        data-ar="كل ما تحتاج معرفته عن تجربة البوتكامب.">Everything you need to know about the bootcamp
+                        experience.</p>
+                </div>
+                <div class="space-y-4">
+
+                    <details class="group bg-surface-container-lowest rounded-xl overflow-hidden reveal">
+                        <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                            <h3 class="font-bold text-lg" style="font-family:'Manrope','Noto Kufi Arabic',sans-serif;"
+                                data-en="How long do I have access to the course?" data-ar="كم مدة وصولي للدورة؟">How
+                                long do I have access to the course?</h3>
+                            <span
+                                class="expand-icon material-symbols-outlined text-primary transition-transform duration-300">expand_more</span>
+                        </summary>
+                        <div class="px-6 pb-6 text-on-surface-variant leading-relaxed border-t border-outline-variant/30 pt-4"
+                            data-en="If you enroll in the Scholar Elite plan, you receive lifetime access to all current and future updates. The Architect Pass provides access as long as your subscription remains active."
+                            data-ar="إذا اشتركت في خطة الباقة الذهبية، ستحصل على وصول مدى الحياة لجميع التحديثات الحالية والمستقبلية. أما تصريح المعماري فيمنحك الوصول طالما اشتراكك نشط.">
+                            If you enroll in the Scholar Elite plan, you receive lifetime access to all current and
+                            future updates. The Architect Pass provides access as long as your subscription remains
+                            active.</div>
+                    </details>
+
+                    <details class="group bg-surface-container-lowest rounded-xl overflow-hidden reveal">
+                        <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                            <h3 class="font-bold text-lg" style="font-family:'Manrope','Noto Kufi Arabic',sans-serif;"
+                                data-en="Do I need prior experience with .NET?" data-ar="هل أحتاج خبرة مسبقة بـ .NET؟">
+                                Do I need prior experience with .NET?</h3>
+                            <span
+                                class="expand-icon material-symbols-outlined text-primary transition-transform duration-300">expand_more</span>
+                        </summary>
+                        <div class="px-6 pb-6 text-on-surface-variant leading-relaxed border-t border-outline-variant/30 pt-4"
+                            data-en="While we cover advanced topics, a basic understanding of any C-based language (Java, C++, JavaScript) is helpful. We provide a 'Pre-Flight' module to get you up to speed on basic C# syntax before the 30-day intensive begins."
+                            data-ar="بينما نغطي مواضيع متقدمة، فإن الفهم الأساسي لأي لغة مبنية على C (مثل Java أو C++ أو JavaScript) مفيد. نوفر وحدة 'قبل الانطلاق' لمساعدتك على استيعاب أساسيات C# قبل بدء المرحلة المكثفة.">
+                            While we cover advanced topics, a basic understanding of any C-based language (Java, C++,
+                            JavaScript) is helpful.</div>
+                    </details>
+
+                    <details class="group bg-surface-container-lowest rounded-xl overflow-hidden reveal">
+                        <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                            <h3 class="font-bold text-lg" style="font-family:'Manrope','Noto Kufi Arabic',sans-serif;"
+                                data-en="Is there a certificate of completion?" data-ar="هل هناك شهادة إتمام؟">Is there
+                                a certificate of completion?</h3>
+                            <span
+                                class="expand-icon material-symbols-outlined text-primary transition-transform duration-300">expand_more</span>
+                        </summary>
+                        <div class="px-6 pb-6 text-on-surface-variant leading-relaxed border-t border-outline-variant/30 pt-4"
+                            data-en="Yes, upon successful completion of the capstone project and all modules, you will receive a verified Architectural Scholar Certification that can be added to your LinkedIn profile and resume."
+                            data-ar="نعم، عند إتمام مشروع التخرج وجميع الوحدات بنجاح، ستحصل على شهادة معتمدة من Architectural Scholar يمكن إضافتها لملفك على LinkedIn وسيرتك الذاتية.">
+                            Yes, upon successful completion of the capstone project and all modules, you will receive a
+                            verified Architectural Scholar Certification.</div>
+                    </details>
+
+                    <details class="group bg-surface-container-lowest rounded-xl overflow-hidden reveal">
+                        <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+                            <h3 class="font-bold text-lg" style="font-family:'Manrope','Noto Kufi Arabic',sans-serif;"
+                                data-en="Can I get a refund?" data-ar="هل يمكنني استرداد المبلغ؟">Can I get a refund?
+                            </h3>
+                            <span
+                                class="expand-icon material-symbols-outlined text-primary transition-transform duration-300">expand_more</span>
+                        </summary>
+                        <div class="px-6 pb-6 text-on-surface-variant leading-relaxed border-t border-outline-variant/30 pt-4"
+                            data-en="We offer a 100% money-back guarantee within the first 30 days of your purchase. If you don't feel the curriculum is pushing your career forward, just email our support team for a full refund."
+                            data-ar="نقدم ضماناً باسترداد 100% من المبلغ خلال الـ 30 يوماً الأولى من شرائك. إذا لم تشعر أن المنهج يدفع مسيرتك المهنية للأمام، تواصل مع فريق الدعم للحصول على استرداد كامل.">
+                            We offer a 100% money-back guarantee within the first 30 days of your purchase.</div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================================
+         CONTACT
+    ====================================================== -->
+        <section class="py-24 bg-surface" id="contact">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid lg:grid-cols-12 gap-16">
+                    <div class="lg:col-span-5 reveal">
+                        <h2 class="text-4xl font-extrabold mb-4"
+                            style="font-family:'Manrope','Noto Kufi Arabic',sans-serif;" data-en="Still have questions?"
+                            data-ar="هل لا تزال لديك أسئلة؟">Still have questions?</h2>
+                        <p class="text-on-surface-variant text-lg mb-8 leading-relaxed"
+                            data-en="Drop us a message and our team will get back to you within 24 hours."
+                            data-ar="أرسل لنا رسالة وسيتواصل معك فريقنا خلال 24 ساعة.">Drop us a message and our team
+                            will get back to you within 24 hours.</p>
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <span
+                                    class="material-symbols-outlined text-primary bg-primary-fixed p-3 rounded-lg">mail</span>
+                                <div>
+                                    <h4 class="font-bold text-on-surface" data-en="Support Email"
+                                        data-ar="البريد الإلكتروني للدعم">Support Email</h4>
+                                    <p class="text-on-surface-variant">support@archscholar.edu</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <span
+                                    class="material-symbols-outlined text-primary bg-primary-fixed p-3 rounded-lg">help_center</span>
+                                <div>
+                                    <h4 class="font-bold text-on-surface" data-en="Help Center" data-ar="مركز المساعدة">
+                                        Help Center</h4>
+                                    <a href="#" class="text-primary hover:underline font-medium"
+                                        data-en="Visit our Documentation" data-ar="زيارة توثيقنا">Visit our
+                                        Documentation</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <svg class="w-6 h-6 mt-3 flex-shrink-0" style="fill:var(--wa-green)"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                                </svg>
+                                <div>
+                                    <h4 class="font-bold text-on-surface" data-en="WhatsApp Chat" data-ar="واتساب">
+                                        WhatsApp Chat</h4>
+                                    <a href="https://wa.me/971500000000" target="_blank" rel="noopener"
+                                        class="font-medium hover:underline" style="color:var(--wa-green)"
+                                        data-en="Chat with us now" data-ar="تحدث معنا الآن">Chat with us now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-7 reveal" style="transition-delay:.15s">
+                        <div
+                            class="bg-surface-container-lowest p-8 lg:p-10 rounded-2xl ambient-shadow border border-outline-variant">
+                            <form id="contact-form" class="space-y-6" onsubmit="handleFormSubmit(event)">
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div class="space-y-2">
+                                        <label
+                                            class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant"
+                                            for="name" data-en="Name" data-ar="الاسم">Name</label>
+                                        <input
+                                            class="w-full bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary/20 p-4 text-sm"
+                                            id="name" data-placeholder-en="John Doe" data-placeholder-ar="محمد أحمد"
+                                            placeholder="John Doe" type="text" required />
+                                    </div>
+                                    <div class="space-y-2">
+                                        <label
+                                            class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant"
+                                            for="email" data-en="Email Address" data-ar="البريد الإلكتروني">Email
+                                            Address</label>
+                                        <input
+                                            class="w-full bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary/20 p-4 text-sm"
+                                            id="email" data-placeholder-en="john@example.com"
+                                            data-placeholder-ar="محمد@example.com" placeholder="john@example.com"
+                                            type="email" required />
+                                    </div>
+                                </div>
+                                <div class="space-y-2">
+                                    <label
+                                        class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant"
+                                        for="subject" data-en="Subject" data-ar="الموضوع">Subject</label>
+                                    <input
+                                        class="w-full bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary/20 p-4 text-sm"
+                                        id="subject" data-placeholder-en="How can we help?"
+                                        data-placeholder-ar="كيف يمكننا المساعدة؟" placeholder="How can we help?"
+                                        type="text" />
+                                </div>
+                                <div class="space-y-2">
+                                    <label
+                                        class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant"
+                                        for="message" data-en="Message" data-ar="الرسالة">Message</label>
+                                    <textarea
+                                        class="w-full bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary/20 p-4 text-sm min-h-[120px]"
+                                        id="message" data-placeholder-en="Tell us more about your query..."
+                                        data-placeholder-ar="أخبرنا أكثر عن استفسارك..."
+                                        placeholder="Tell us more about your query..."></textarea>
+                                </div>
+                                <button type="submit"
+                                    class="editorial-gradient text-white w-full py-4 rounded-lg font-bold uppercase tracking-widest text-xs shadow-lg hover:scale-[1.01] transition-all"
+                                    data-en="Send Message" data-ar="إرسال الرسالة">Send Message</button>
+                                <div id="form-success"
+                                    class="hidden text-center p-4 bg-green-50 rounded-lg text-green-700 font-semibold"
+                                    data-en="✅ Message sent! We'll reply within 24 hours."
+                                    data-ar="✅ تم إرسال الرسالة! سنرد خلال 24 ساعة.">✅ Message sent! We'll reply within
+                                    24 hours.</div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================================
+         FINAL CTA
+    ====================================================== -->
+        <section class="py-24 px-6" id="cta">
+            <div
+                class="max-w-5xl mx-auto editorial-gradient rounded-3xl p-12 lg:p-20 text-center text-white relative overflow-hidden reveal">
+                <div class="absolute inset-0 opacity-10 pointer-events-none">
+                    <div class="absolute -top-10 -left-10 w-64 h-64 border-4 border-white rounded-full"></div>
+                    <div class="absolute -bottom-20 -right-20 w-96 h-96 border-4 border-white rounded-full"></div>
+                </div>
+                <div class="relative z-10">
+                    <h2 class="text-4xl lg:text-5xl font-extrabold mb-6 leading-tight"
+                        style="font-family:'Manrope','Noto Kufi Arabic',sans-serif;" data-en="Start Your Journey Today"
+                        data-ar="ابدأ رحلتك اليوم">Start Your Journey Today</h2>
+                    <p class="text-xl opacity-90 mb-12 max-w-2xl mx-auto"
+                        data-en="Join 1,200+ developers currently mastering the art of .NET architectural engineering."
+                        data-ar="انضم لأكثر من 1200 مطور يتقنون حالياً فن هندسة .NET المعمارية.">Join 1,200+ developers
+                        currently mastering the art of .NET architectural engineering.</p>
+
+                    <!-- Live Countdown -->
+                    <div id="countdown-display" class="flex justify-center gap-4 mb-12">
+                        <div class="flex flex-col items-center">
+                            <span id="cd-hours" class="text-3xl font-extrabold"
+                                style="font-family:'Manrope','Noto Kufi Arabic',sans-serif;">00</span>
+                            <span class="text-[10px] uppercase tracking-widest opacity-60" data-en="Hours"
+                                data-ar="ساعات">Hours</span>
+                        </div>
+                        <span class="text-3xl font-extrabold">:</span>
+                        <div class="flex flex-col items-center">
+                            <span id="cd-mins" class="text-3xl font-extrabold"
+                                style="font-family:'Manrope','Noto Kufi Arabic',sans-serif;">00</span>
+                            <span class="text-[10px] uppercase tracking-widest opacity-60" data-en="Mins"
+                                data-ar="دقائق">Mins</span>
+                        </div>
+                        <span class="text-3xl font-extrabold">:</span>
+                        <div class="flex flex-col items-center">
+                            <span id="cd-secs" class="text-3xl font-extrabold"
+                                style="font-family:'Manrope','Noto Kufi Arabic',sans-serif;">00</span>
+                            <span class="text-[10px] uppercase tracking-widest opacity-60" data-en="Secs"
+                                data-ar="ثواني">Secs</span>
+                        </div>
+                    </div>
+
+                    <button onclick="scrollToEnroll()"
+                        class="bg-white text-primary px-10 py-5 rounded-lg font-bold uppercase tracking-widest text-sm shadow-2xl hover:bg-surface-container-lowest transition-colors"
+                        data-en="Enroll in the Masterclass" data-ar="سجّل في الماستركلاس">Enroll in the
+                        Masterclass</button>
+                    <p class="mt-8 text-sm opacity-60" data-en="30-day money-back guarantee. No questions asked."
+                        data-ar="ضمان استرداد 30 يوماً. بدون أسئلة.">30-day money-back guarantee. No questions asked.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ======================================================
+       FOOTER
+  ====================================================== -->
+    <footer class="bg-slate-50 w-full py-12 mt-4 border-t border-slate-100">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-8 max-w-7xl mx-auto">
+            <div class="space-y-4">
+                <span class="text-lg font-bold text-slate-900"
+                    style="font-family:'Manrope','Noto Kufi Arabic',sans-serif;" data-en="Architectural Scholar"
+                    data-ar="المعلم المعماري">Architectural Scholar</span>
+                <p class="text-slate-500 leading-relaxed"
+                    data-en="Defining the next generation of professional technical education through editorial precision."
+                    data-ar="نحدد جيل التعليم التقني المهني القادم من خلال الدقة التحريرية.">Defining the next
+                    generation of professional technical education through editorial precision.</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-slate-900 mb-4 uppercase tracking-widest text-xs" data-en="Navigation"
+                    data-ar="التنقل">Navigation</h4>
+                <ul class="space-y-2">
+                    <li><a href="#curriculum" class="text-slate-500 hover:text-blue-500 transition-colors"
+                            data-en="Curriculum" data-ar="المنهج">Curriculum</a></li>
+                    <li><a href="#instructors" class="text-slate-500 hover:text-blue-500 transition-colors"
+                            data-en="Instructors" data-ar="المدربون">Instructors</a></li>
+                    <li><a href="#reviews" class="text-slate-500 hover:text-blue-500 transition-colors"
+                            data-en="Reviews" data-ar="التقييمات">Reviews</a></li>
+                    <li><a href="#contact" class="text-slate-500 hover:text-blue-500 transition-colors"
+                            data-en="Contact" data-ar="تواصل معنا">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-slate-900 mb-4 uppercase tracking-widest text-xs" data-en="Legal"
+                    data-ar="قانوني">Legal</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-slate-500 hover:text-blue-500 transition-colors"
+                            data-en="Terms of Service" data-ar="شروط الخدمة">Terms of Service</a></li>
+                    <li><a href="#" class="text-slate-500 hover:text-blue-500 transition-colors"
+                            data-en="Privacy Policy" data-ar="سياسة الخصوصية">Privacy Policy</a></li>
+                    <li><a href="#" class="text-slate-500 hover:text-blue-500 transition-colors">GitHub</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-slate-900 mb-4 uppercase tracking-widest text-xs" data-en="Support"
+                    data-ar="الدعم">Support</h4>
+                <p class="text-slate-500 mb-4" data-en="Questions? We are here to help you accelerate your career."
+                    data-ar="هل لديك أسئلة؟ نحن هنا لمساعدتك على تسريع مسيرتك.">Questions? We are here to help you
+                    accelerate your career.</p>
+                <a href="#contact" class="text-blue-700 font-semibold hover:underline" data-en="Contact Support"
+                    data-ar="تواصل مع الدعم">Contact Support</a>
+            </div>
+        </div>
+        <div
+            class="max-w-7xl mx-auto px-8 mt-12 pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-slate-400 text-xs" data-en="© 2025 Architectural Scholar. Editorial Tech Education."
+                data-ar="© 2025 المعلم المعماري. التعليم التقني التحريري.">© 2025 Architectural Scholar. Editorial Tech
+                Education.</p>
+            <div class="flex gap-4">
+                <a href="https://wa.me/971500000000" target="_blank" rel="noopener"
+                    class="text-xs font-semibold flex items-center gap-1 hover:opacity-80 transition-opacity"
+                    style="color:var(--wa-green)">
+                    <svg class="w-4 h-4" style="fill:var(--wa-green)" viewBox="0 0 24 24">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                    </svg>
+                    WhatsApp
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ======================================================
+       FLOATING BUTTONS
+  ====================================================== -->
+
+    <!-- WhatsApp FAB -->
+    <a id="wa-btn" href="https://wa.me/971500000000?text=Hello%2C%20I%27m%20interested%20in%20the%20.NET%20Bootcamp"
+        target="_blank" rel="noopener" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 24 24">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+        </svg>
+    </a>
+
+    <!-- Scroll-to-top -->
+    <button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
+        <span class="material-symbols-outlined">arrow_upward</span>
+    </button>
+
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

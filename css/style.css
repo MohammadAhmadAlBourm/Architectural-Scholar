@@ -1,0 +1,230 @@
+:root {
+    --primary: #0040a1;
+    --primary-grad: linear-gradient(135deg, #0040a1 0%, #0056d2 100%);
+    --wa-green: #25D366;
+}
+
+/* --- RTL / LTR base --- */
+html[dir="rtl"] body {
+    font-family: "Noto Kufi Arabic", sans-serif;
+}
+
+html[dir="ltr"] body {
+    font-family: "Inter", sans-serif;
+}
+
+html[dir="rtl"] h1,
+html[dir="rtl"] h2,
+html[dir="rtl"] h3,
+html[dir="rtl"] h4 {
+    font-family: "Noto Kufi Arabic", sans-serif;
+}
+
+/* Glass nav */
+.glass-nav {
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(24px);
+}
+
+/* Gradient */
+.editorial-gradient {
+    background: var(--primary-grad);
+}
+
+/* Ambient shadow */
+.ambient-shadow {
+    box-shadow: 0 8px 32px rgba(25, 28, 29, 0.06);
+}
+
+/* ===== Material icons fix ===== */
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* ===== Details / FAQ ===== */
+details[open] summary .expand-icon {
+    transform: rotate(180deg);
+}
+
+details summary::-webkit-details-marker {
+    display: none;
+}
+
+/* ===== Language toggle ===== */
+.lang-btn {
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    background: transparent;
+    border-radius: 8px;
+    padding: 5px 14px;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all .2s;
+    letter-spacing: .05em;
+}
+
+.lang-btn:hover {
+    background: var(--primary);
+    color: #fff;
+}
+
+/* ===== WhatsApp FAB ===== */
+#wa-btn {
+    position: fixed;
+    bottom: 88px;
+    right: 24px;
+    z-index: 9999;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: var(--wa-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 24px rgba(37, 211, 102, .45);
+    cursor: pointer;
+    transition: transform .2s, box-shadow .2s;
+    text-decoration: none;
+}
+
+html[dir="rtl"] #wa-btn {
+    right: auto;
+    left: 24px;
+}
+
+#wa-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 32px rgba(37, 211, 102, .55);
+}
+
+#wa-btn svg {
+    width: 30px;
+    height: 30px;
+    fill: #fff;
+}
+
+/* WhatsApp pulse ring */
+#wa-btn::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 3px solid rgba(37, 211, 102, .5);
+    animation: wa-pulse 2s infinite;
+}
+
+@keyframes wa-pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    70% {
+        transform: scale(1.35);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+/* ===== Scroll-to-top ===== */
+#scroll-top {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9999;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(0, 64, 161, .35);
+    cursor: pointer;
+    border: none;
+    transition: transform .2s, opacity .3s, visibility .3s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+html[dir="rtl"] #scroll-top {
+    right: auto;
+    left: 24px;
+}
+
+#scroll-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+#scroll-top:hover {
+    transform: scale(1.1) translateY(-2px);
+}
+
+/* ===== Countdown ===== */
+#countdown-display {
+    font-variant-numeric: tabular-nums;
+}
+
+/* ===== Reveal on scroll ===== */
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity .55s ease, transform .55s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== Active nav link ===== */
+.nav-link.active {
+    color: var(--primary);
+}
+
+/* ===== Sticky nav highlight ===== */
+.scrolled {
+    box-shadow: 0 4px 24px rgba(0, 64, 161, .09);
+}
+
+/* ===== Hero badge animation ===== */
+@keyframes badge-in {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-badge {
+    animation: badge-in .6s ease .1s both;
+}
+
+/* ===== Pricing ring glow ===== */
+.ring-glow {
+    box-shadow: 0 0 0 4px #dae2ff, 0 16px 48px rgba(0, 64, 161, .15);
+}
+
+/* ===== Mobile hamburger ===== */
+#mobile-menu {
+    transition: max-height .35s ease, opacity .35s ease;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+}
+
+#mobile-menu.open {
+    max-height: 400px;
+    opacity: 1;
+}
